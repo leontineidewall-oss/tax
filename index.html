@@ -132,6 +132,62 @@ td a:hover{color:var(--g)}
 .seg button[aria-pressed=true]{color:var(--ink);background:var(--bg3)}
 .more{display:block;width:100%;padding:13px;border-top:1px solid var(--line);font:500 12px/1 var(--mono);color:var(--dim)}
 .more:hover{color:var(--ink)}
+a.btn{text-decoration:none;display:inline-block}
+/* live strip, ticker */
+.live{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-top:26px;font:500 11.5px/1 var(--mono);color:var(--mute);letter-spacing:.08em;text-transform:uppercase}
+.live span{display:flex;align-items:center;gap:8px}
+.live b{color:var(--ink);font-weight:500}
+.sd{width:6px;height:6px;border-radius:50%;background:var(--mute);display:inline-block}
+.sd.ok{background:var(--g);box-shadow:0 0 8px var(--g)}
+.sd.bad{background:var(--r)}
+.tick{border-top:1px solid var(--line);overflow:hidden;white-space:nowrap;padding:15px 0;background:var(--bg2)}
+.tick div{display:inline-block;animation:tick 48s linear infinite;font:700 12px/1 var(--mono);letter-spacing:.18em;color:var(--dim)}
+.tick i{font-style:normal;color:var(--g);margin:0 22px}
+@keyframes tick{to{transform:translateX(-50%)}}
+/* split sections */
+.split{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:center}
+.lead{color:var(--dim);font-size:16px;max-width:440px;margin-top:16px}
+.fifo{border:1px solid var(--line);border-radius:4px;padding:26px;background:var(--bg2)}
+.lots{display:flex;gap:4px;height:84px}
+.lot{flex-grow:1;flex-basis:0;min-width:0;background:rgba(239,233,220,.14);border:1px solid rgba(239,233,220,.22);border-radius:2px;transition:flex-grow .7s ease,background .5s,border-color .5s;position:relative;overflow:hidden}
+.lot:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 5px,rgba(12,13,12,.35) 5px 6px)}
+.lot.new{background:rgba(74,222,128,.32);border-color:var(--g)}
+.lot.hit{background:rgba(248,113,113,.3);border-color:var(--r)}
+.flab{display:flex;justify-content:space-between;font:500 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-top:12px}
+.flog{font:500 12px/1 var(--mono);color:var(--dim);margin-top:18px;padding-top:16px;border-top:1px solid var(--line);height:29px}
+.flog b{font-weight:500}
+.grid8{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.tile{padding:26px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .2s}
+.tile:nth-child(4n){border-right:0}.tile:nth-child(n+5){border-bottom:0}
+.tile:hover{background:var(--bg2)}
+.tile code{font:700 13px/1 var(--mono);color:var(--g)}
+.tile h3{font:700 16px/1.25 var(--sans);margin-top:30px}
+.tile p{font-size:13.5px;color:var(--mute);margin-top:6px}
+.code{border:1px solid var(--line2);border-radius:4px;overflow:hidden;background:#090a09}
+.ctabs{display:flex;border-bottom:1px solid var(--line);overflow-x:auto}
+.ctabs button{font:500 12px/1 var(--mono);padding:14px 18px;color:var(--mute);border-right:1px solid var(--line);white-space:nowrap}
+.ctabs button[aria-selected=true]{color:var(--ink);background:var(--bg2);box-shadow:inset 0 -2px 0 var(--g)}
+.cbody{font:13px/1.9 var(--mono);padding:18px 20px;margin:0;color:var(--dim);overflow-x:auto;min-height:270px}
+.cbody span{display:block;white-space:pre}
+.cbody i{font-style:normal;color:var(--mute)}
+.cbody b{font-weight:500;color:var(--ink)}
+.cbody em{font-style:normal;color:var(--g)}
+.cfoot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 20px;border-top:1px solid var(--line);font:500 12px/1.4 var(--mono);color:var(--mute);flex-wrap:wrap}
+.panel{border:1px solid var(--line);border-radius:4px;background:var(--bg2)}
+.prow{display:flex;justify-content:space-between;gap:16px;padding:15px 20px;border-bottom:1px solid var(--line);font:500 13px/1.3 var(--mono);color:var(--mute)}
+.prow:last-child{border-bottom:0}
+.prow b{color:var(--ink);font-weight:500;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.prow button{color:var(--ink);font:500 13px/1.3 var(--mono)}
+.prow button:hover{color:var(--g)}
+.brow{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.tstat{font:500 12px/1.5 var(--mono);color:var(--dim);margin-top:14px;min-height:18px}
+.term2{border:1px solid var(--line2);border-radius:4px;background:#090a09;font:13px/2 var(--mono);padding:20px 22px;color:var(--dim)}
+.term2 b{color:var(--g);font-weight:500}
+.cta{text-align:center;padding:110px 0}
+.cta h2{font-size:clamp(30px,4.6vw,56px)}
+.cta .btn{margin-top:30px;display:inline-block;text-decoration:none;padding:16px 26px}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
 /* how + faq */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .step{border:1px solid var(--line);border-radius:4px;padding:26px 24px}
@@ -167,7 +223,11 @@ dialog h4{font:700 12px/1 var(--mono);letter-spacing:.14em;text-transform:upperc
   .kpis{grid-template-columns:1fr 1fr}
   .kpi{border-right:1px solid var(--line)!important;border-bottom:1px solid var(--line)!important}
   .kpi:nth-child(2n){border-right:0!important}.kpi:nth-child(n+5){border-bottom:0!important}
-  .steps,.ex{grid-template-columns:1fr}
+  .steps,.ex,.split{grid-template-columns:1fr}
+  .split{gap:32px}
+  .grid8{grid-template-columns:1fr 1fr}
+  .tile{border-right:1px solid var(--line)!important;border-bottom:1px solid var(--line)!important}
+  .tile:nth-child(2n){border-right:0!important}.tile:nth-child(n+7){border-bottom:0!important}
   .ex button{border-right:0;border-bottom:1px solid var(--line)}
   .ex button:last-child{border-bottom:0}
 }
@@ -182,6 +242,10 @@ dialog h4{font:700 12px/1 var(--mono);letter-spacing:.14em;text-transform:upperc
   .chip{padding:8px 9px}
   .tlog{font-size:11px}
   section{padding:52px 0}
+  .cta{padding:80px 0}
+  .live{gap:14px}
+  .tile{padding:20px 16px}
+  .tile h3{margin-top:20px}
   #ca{display:none}
   #connect{margin-left:auto}
 }
@@ -192,7 +256,7 @@ dialog h4{font:700 12px/1 var(--mono);letter-spacing:.14em;text-transform:upperc
 <nav>
   <div class="wrap">
     <a class="logo" href="#top" aria-label="TAX home"><i></i>TAX</a>
-    <div class="links"><a href="#scan">Scan</a><a href="#how">How it works</a><a href="#faq">FAQ</a></div>
+    <div class="links"><a href="#scan">Scan</a><a href="#engine">Engine</a><a href="#formats">Exports</a><a href="#token">$TAX</a><a href="#faq">FAQ</a></div>
     <button class="chip" id="ca" type="button" title="copy contract address">CA <span id="caV">—</span></button>
     <button class="btn o" id="connect" type="button">Connect</button>
   </div>
@@ -219,6 +283,7 @@ dialog h4{font:700 12px/1 var(--mono);letter-spacing:.14em;text-transform:upperc
       </div>
       <p class="msg" id="fmsg" role="status"></p>
     </form>
+    <div class="live" id="live"><span><i class="sd" id="sdC"></i>chain</span><span><i class="sd" id="sdP"></i>SOL <b id="lSol">—</b></span><span><i class="sd" id="sdT"></i>$TAX <b id="lTax">—</b></span></div>
     <div class="term" id="term" hidden>
       <header><i class="dot" id="tdot"></i><span class="st" id="tst">scanning</span>
         <span class="nums"><span>tx <b id="nTx">0</b></span><span>trades <b id="nTr">0</b></span><span>back to <b id="nOld">—</b></span></span></header>
@@ -226,6 +291,8 @@ dialog h4{font:700 12px/1 var(--mono);letter-spacing:.14em;text-transform:upperc
       <footer><span class="cap" id="tw">—</span><button class="btn q" id="stop" type="button">Stop</button></footer>
     </div>
   </div>
+
+  <div class="tick" aria-hidden="true"><div>EVERY DEX<i>/</i>FIFO COST BASIS<i>/</i>SOL/USD DAILY CLOSE<i>/</i>AIRDROPS FLAGGED<i>/</i>TOKEN SWAPS CARRY BASIS<i>/</i>3 CSV FORMATS<i>/</i>UP TO 5 WALLETS<i>/</i>NO ACCOUNTS<i>/</i>EVERY DEX<i>/</i>FIFO COST BASIS<i>/</i>SOL/USD DAILY CLOSE<i>/</i>AIRDROPS FLAGGED<i>/</i>TOKEN SWAPS CARRY BASIS<i>/</i>3 CSV FORMATS<i>/</i>UP TO 5 WALLETS<i>/</i>NO ACCOUNTS<i>/</i></div></div>
 
   <section id="report" hidden>
     <div class="wrap">
@@ -280,7 +347,7 @@ dialog h4{font:700 12px/1 var(--mono);letter-spacing:.14em;text-transform:upperc
 
   <section id="how">
     <div class="wrap">
-      <div class="shead"><div><span class="cap">How it works</span><h2>Three steps. No spreadsheets.</h2></div></div>
+      <div class="shead"><div><span class="cap">01 · How it works</span><h2>Three steps. No spreadsheets.</h2></div></div>
       <div class="steps">
         <div class="step"><span class="n">01</span><h3>Paste your wallets</h3><p>Up to five at once. Nothing to sign, nothing stored.</p></div>
         <div class="step"><span class="n">02</span><h3>We read the chain</h3><p>Every swap on every DEX, straight from your wallet's balance changes.</p></div>
@@ -289,9 +356,67 @@ dialog h4{font:700 12px/1 var(--mono);letter-spacing:.14em;text-transform:upperc
     </div>
   </section>
 
+  <section id="engine">
+    <div class="wrap split">
+      <div class="rv"><span class="cap">02 · Engine</span><h2>First in, first out.</h2><p class="lead">Every sale is matched to the oldest tokens you still hold, then priced at that day's SOL/USD close.</p></div>
+      <div class="fifo rv" aria-hidden="true"><div class="lots" id="lots"></div><div class="flab"><span>oldest lot</span><span>newest lot</span></div><div class="flog" id="flog">&gt; waiting</div></div>
+    </div>
+  </section>
+
+  <section id="reads">
+    <div class="wrap">
+      <div class="shead rv"><div><span class="cap">03 · Coverage</span><h2>Reads every move.</h2></div></div>
+      <div class="grid8 rv">
+        <div class="tile"><code>[+/-]</code><h3>Buys &amp; sells</h3><p>Any DEX, bot or launchpad.</p></div>
+        <div class="tile"><code>[&lt;&gt;]</code><h3>Token swaps</h3><p>Cost basis carries over.</p></div>
+        <div class="tile"><code>[ws]</code><h3>Wrapped SOL</h3><p>Counted as SOL.</p></div>
+        <div class="tile"><code>[$]</code><h3>USDC &amp; USDT</h3><p>Valued at face.</p></div>
+        <div class="tile"><code>[in]</code><h3>Airdrops</h3><p>Flagged, zero basis.</p></div>
+        <div class="tile"><code>[-&gt;]</code><h3>Transfers</h3><p>Tracked per wallet.</p></div>
+        <div class="tile"><code>[x]</code><h3>Failed txs</h3><p>Ignored.</p></div>
+        <div class="tile"><code>[fee]</code><h3>Network fees</h3><p>Totaled per year.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formats">
+    <div class="wrap">
+      <div class="shead rv"><div><span class="cap">04 · Exports</span><h2>Three files. Every column.</h2></div></div>
+      <div class="code rv">
+        <div class="ctabs" id="ctabs" role="tablist"><button type="button" role="tab" data-f="gains" aria-selected="true">gains.csv</button><button type="button" role="tab" data-f="trades" aria-selected="false">trades.csv</button><button type="button" role="tab" data-f="universal" aria-selected="false">universal.csv</button></div>
+        <pre class="cbody" id="cbody"></pre>
+        <div class="cfoot"><span id="cdesc">—</span><button class="btn q" id="ccopy" type="button">Copy header</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="token">
+    <div class="wrap split">
+      <div class="rv"><span class="cap">05 · $TAX</span><h2>Hold it. Export free.</h2><p class="lead" id="tlead">$50+ of $TAX in a connected wallet unlocks every CSV, every year, every wallet.</p>
+        <div class="brow"><button class="btn p" id="tconn" type="button">Connect wallet</button><a class="btn q" id="tbuy" href="#" target="_blank" rel="noopener" hidden>Buy $TAX</a></div>
+        <p class="tstat" id="tstat"></p>
+      </div>
+      <div class="panel rv">
+        <div class="prow"><span>Contract</span><button type="button" id="tca">—</button></div>
+        <div class="prow"><span>Price</span><b id="tPx">—</b></div>
+        <div class="prow"><span>Market cap</span><b id="tMc">—</b></div>
+        <div class="prow"><span>Liquidity</span><b id="tLq">—</b></div>
+        <div class="prow"><span>Buys / sells 6h</span><b id="tBs">—</b></div>
+        <div class="prow"><span>Your wallet</span><b id="tYou">—</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy">
+    <div class="wrap split">
+      <div class="rv"><span class="cap">06 · Privacy</span><h2>No accounts. No database.</h2><p class="lead">Paste an address, get a report. Close the tab and it's gone.</p></div>
+      <div class="term2 rv"><div><b>&gt;</b> address in</div><div><b>&gt;</b> transactions read from the chain</div><div><b>&gt;</b> report built in your browser</div><div><b>&gt;</b> nothing saved</div></div>
+    </div>
+  </section>
+
   <section id="faq">
     <div class="wrap">
-      <div class="shead"><div><span class="cap">FAQ</span><h2>Questions</h2></div></div>
+      <div class="shead"><div><span class="cap">07 · FAQ</span><h2>Questions</h2></div></div>
       <div class="faq">
         <details><summary>How is cost basis worked out?</summary><p>First in, first out, per token, across every wallet you add. Each buy is valued in SOL (or USDC), then converted to USD at that day's SOL/USD close.</p></details>
         <details><summary>Which DEXs and bots does it cover?</summary><p>All of them. TAX reads how your own balances changed in each transaction, so Pump.fun, Raydium, Jupiter, Meteora, Orca and trading bots are all counted the same way.</p></details>
@@ -301,6 +426,9 @@ dialog h4{font:700 12px/1 var(--mono);letter-spacing:.14em;text-transform:upperc
         <details><summary>Is this tax advice?</summary><p>No. It is the math from on-chain data. Your accountant still files.</p></details>
       </div>
     </div>
+  </section>
+  <section class="cta">
+    <div class="wrap rv"><h2>Your trades are already on-chain.</h2><a class="btn p" href="#scan" id="ctaBtn">Scan a wallet</a></div>
   </section>
 </main>
 
@@ -757,6 +885,7 @@ if (typeof module !== "undefined" && module.exports) module.exports = CALC;
   function minTokens() { return MKT && MKT.priceUsd ? 50 / MKT.priceUsd : null; }
   function canExport() { return !CFG.mint || S.held === true; }
   function renderGate(open) {
+    renderToken();
     var b = $("xbadge");
     if (!CFG.mint) { b.textContent = "free"; b.className = "badge on"; }
     else if (S.held) { b.textContent = "unlocked"; b.className = "badge on"; }
@@ -825,6 +954,91 @@ if (typeof module !== "undefined" && module.exports) module.exports = CALC;
     });
   }
   $("wclose").addEventListener("click", function () { $("wdlg").close(); });
+
+  // ---------- live strip: chain, SOL, $TAX
+  function px(v) { if (v == null) return "—"; return v >= 1 ? usd(v) : "$" + Number(v).toPrecision(3); }
+  function dot(id, ok) { $(id).className = "sd " + (ok == null ? "" : ok ? "ok" : "bad"); }
+  rpc("getBalance", ["So11111111111111111111111111111111111111112"]).then(function () { dot("sdC", true); }, function () { dot("sdC", false); });
+  (function () {
+    var now = Math.floor(Date.now() / 1000);
+    getJ("/api/sol?from=" + (now - 3 * DAY) + "&to=" + now).then(function (j) {
+      var ks = Object.keys(j.days || {}).map(Number).sort(function (a, b) { return a - b; }), v = ks.length ? j.days[ks[ks.length - 1]] : null;
+      $("lSol").textContent = px(v); dot("sdP", v != null);
+    }, function () { dot("sdP", false); });
+  })();
+
+  // ---------- $TAX panel
+  function renderToken() {
+    $("tca").textContent = CFG.mint ? short(CFG.mint) : "—";
+    $("tlead").textContent = CFG.mint ? "$50+ of $TAX in a connected wallet unlocks every CSV, every year, every wallet." : "Exports are open to everyone until $TAX is live. Then $50+ in a connected wallet unlocks them.";
+    $("tPx").textContent = MKT ? px(MKT.priceUsd) : "—";
+    $("tMc").textContent = MKT && MKT.marketCapUsd ? usd(MKT.marketCapUsd) : "—";
+    $("tLq").textContent = MKT && MKT.liquidityUsd ? usd(MKT.liquidityUsd) : "—";
+    $("tBs").textContent = MKT ? grp(MKT.buys6h || 0, 0) + " / " + grp(MKT.sells6h || 0, 0) : "—";
+    $("tYou").textContent = S.account ? (S.heldAmt != null ? amt(S.heldAmt) + " $TAX" : short(S.account)) : "—";
+    $("lTax").textContent = MKT ? px(MKT.priceUsd) : "—"; dot("sdT", MKT ? true : null);
+    if (MKT && MKT.url) { $("tbuy").href = MKT.url; $("tbuy").hidden = false; }
+    var st = "";
+    if (S.account && CFG.mint) st = S.held ? "Exports unlocked." : S.held === false ? "Below $50 of $TAX. Exports stay locked." : "Couldn't check holdings right now.";
+    else if (S.account) st = "Connected. Exports are open.";
+    $("tstat").textContent = st; $("tconn").textContent = S.account ? "Check again" : "Connect wallet";
+  }
+  $("tconn").addEventListener("click", function () {
+    (S.account ? checkHolder() : pickWallet()).then(renderToken).catch(function (e) { if (e && e.message !== "no wallet") toast("wallet didn't connect"); });
+  });
+  $("tca").addEventListener("click", function () { $("ca").click(); });
+  cfgReady.then(renderToken);
+
+  // ---------- engine: lots stack up, sales eat the oldest first
+  (function () {
+    var box = $("lots"), log = $("flog"), still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches, r = rng(5), step = 0;
+    function lot(g, cls) { var d = document.createElement("div"); d.className = "lot " + (cls || ""); d.style.flexGrow = g; box.appendChild(d); return d; }
+    [3, 2, 4, 2].forEach(function (g) { lot(g); });
+    if (still) return;
+    function buy() {
+      var d = lot(0, "new"); requestAnimationFrame(function () { requestAnimationFrame(function () { d.style.flexGrow = 2 + Math.round(r() * 3); }); });
+      setTimeout(function () { d.classList.remove("new"); }, 1100);
+      log.innerHTML = '&gt; <b class="g">buy</b> · new lot added';
+    }
+    function sell() {
+      var first = box.firstElementChild; if (!first) return buy();
+      var g = Number(first.style.flexGrow), take = Math.min(g, 1 + Math.round(r() * 3));
+      first.classList.add("hit");
+      if (take >= g) { first.style.flexGrow = 0; setTimeout(function () { first.remove(); }, 720); log.innerHTML = '&gt; <b class="r">sell</b> · oldest lot closed, gain realized'; }
+      else { first.style.flexGrow = g - take; setTimeout(function () { first.classList.remove("hit"); }, 900); log.innerHTML = '&gt; <b class="r">sell</b> · matched to the oldest lot'; }
+    }
+    setInterval(function () { if (document.hidden) return; var n = box.children.length; step++; if (n < 3 || (n < 7 && step % 3 !== 0 && r() < 0.5)) buy(); else sell(); }, 1700);
+  })();
+
+  // ---------- export schemas: the real column headers
+  var KIND = { description: "text", date_acquired: "date", date_sold: "date", proceeds_usd: "usd", cost_basis_usd: "usd", gain_usd: "usd", term: "short | long", proceeds_sol: "sol", cost_basis_sol: "sol", gain_sol: "sol", note: "text", tx: "signature",
+    date_utc: "datetime", wallet: "address", type: "buy | sell | in | out | swap", token: "symbol", mint: "address", token_amount: "number", quote: "SOL | USDC | USDT", quote_amount: "number", sol_usd: "usd", usd_value: "usd", network_fee_sol: "sol",
+    Date: "datetime", "Sent Amount": "number", "Sent Currency": "symbol", "Received Amount": "number", "Received Currency": "symbol", "Fee Amount": "number", "Fee Currency": "symbol", "Net Worth Amount": "usd", "Net Worth Currency": "USD", Label: "text", Description: "buy | sell | swap | transfer", TxHash: "signature" };
+  var DESC = { gains: "one row per FIFO lot sold · Form 8949 layout", trades: "one row per trade or transfer", universal: "sent / received layout most tax apps import" };
+  var EMPTY = { ledger: [], realized: [], tokens: {} }, curF = "gains";
+  function head(f) { return (f === "gains" ? CALC.gainsCsv(EMPTY, "all") : f === "trades" ? CALC.tradesCsv(EMPTY, "all") : CALC.universalCsv(EMPTY, "all")).trim(); }
+  function pad(s, n) { while (s.length < n) s += " "; return s; }
+  function renderSchema(f) {
+    curF = f; var cols = head(f).split(",");
+    $("cbody").innerHTML = cols.map(function (c, i) { return "<span><i>" + (i < 9 ? "0" : "") + (i + 1) + "  </i><b>" + esc(pad(c, 20)) + "</b><em>" + esc(KIND[c] || "") + "</em></span>"; }).join("");
+    $("cdesc").textContent = cols.length + " columns · " + DESC[f];
+    Array.prototype.forEach.call($("ctabs").children, function (b) { b.setAttribute("aria-selected", String(b.getAttribute("data-f") === f)); });
+  }
+  $("ctabs").addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) renderSchema(b.getAttribute("data-f")); });
+  $("ccopy").addEventListener("click", function () { (navigator.clipboard ? navigator.clipboard.writeText(head(curF)) : Promise.reject()).then(function () { toast("header copied"); }, function () {}); });
+  renderSchema("gains");
+
+  // ---------- reveal on scroll, "/" focuses the box
+  (function () {
+    var els = document.querySelectorAll(".rv");
+    if (!("IntersectionObserver" in window)) { Array.prototype.forEach.call(els, function (e) { e.classList.add("in"); }); return; }
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }); }, { rootMargin: "0px 0px -8% 0px" });
+    Array.prototype.forEach.call(els, function (e) { io.observe(e); });
+  })();
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "/" && document.activeElement !== $("w") && !/INPUT|TEXTAREA|SELECT/.test((document.activeElement || {}).tagName)) { e.preventDefault(); $("w").focus(); window.scrollTo({ top: 0, behavior: "smooth" }); }
+  });
+  $("ctaBtn").addEventListener("click", function () { setTimeout(function () { $("w").focus(); }, 400); });
   $("connect").addEventListener("click", function () {
     if (S.account) { (navigator.clipboard ? navigator.clipboard.writeText(S.account) : Promise.reject()).then(function () { toast("address copied"); }, function () {}); return; }
     pickWallet().catch(function (e) { if (e && e.message !== "no wallet") toast("wallet didn't connect"); });
