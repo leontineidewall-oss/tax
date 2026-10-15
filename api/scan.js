@@ -11,7 +11,7 @@ async function rpc(method, params) {
 }
 async function pool(items, n, fn) {
   const out = new Array(items.length); let i = 0;
-  async function w() { while (i < items.length) { const k = i++; for (let a = 0; a < 3; a++) { try { out[k] = await fn(items[k]); break; } catch (e) { out[k] = undefined; await new Promise(r => setTimeout(r, 300 * (a + 1))); } } } }
+  async function w() { while (i < items.length) { const k = i++; for (let a = 0; a < 3; a++) { try { out[k] = await fn(items[k]); break; } catch (e) { out[k] = undefined; await new Promise(r => setTimeout(r, (process.env.RPC_URL ? 300 : 800) * (a + 1))); } } } }
   await Promise.all(Array.from({ length: Math.min(n, items.length) }, w));
   return out;
 }
@@ -25,7 +25,7 @@ module.exports = async function (req, res) {
     const opt = { limit: lim }; if (before) opt.before = before;
     const sigs = await rpc("getSignaturesForAddress", [w, opt]);
     const ok = sigs.filter(s => !s.err);
-    const txs = await pool(ok, 8, s => rpc("getTransaction", [s.signature, { encoding: "jsonParsed", maxSupportedTransactionVersion: 0, commitment: "confirmed" }]));
+    const txs = await pool(ok, process.env.RPC_URL ? 8 : 3, s => rpc("getTransaction", [s.signature, { encoding: "jsonParsed", maxSupportedTransactionVersion: 0, commitment: "confirmed" }]));
     const rows = [], missed = [];
     txs.forEach((tx, i) => { if (tx === undefined) { missed.push(ok[i].signature); return; } const r = parseTx(tx, w); if (r) rows.push(r); });
     send(res, 200, { rows, seen: sigs.length, failed: sigs.length - ok.length, missed, oldest: sigs.length ? sigs[sigs.length - 1].blockTime || null : null, next: sigs.length === lim ? sigs[sigs.length - 1].signature : null }, "no-store");
